@@ -1,0 +1,16 @@
+// 앞서 자바 코드를 실행 시키기 위해 oracle DB에 테이블을 생성한다.
+
+// 테이블 생성
+Create Table DEPARTMENT (
+DEPTNO NUMBER,
+DEPTNAME VARCHAR2(10),
+FLOOR NUMBER,
+PRIMARY KEY(DEPTNO));
+
+// 테이블 조회
+select * from DEPARTMENT;
+
+// 데이터 입력
+insert into DEPARTMENT(DEPTNO,DEPTNAME,FLOOR) VALUES(1, '부서' ,1);
+
+commit;
