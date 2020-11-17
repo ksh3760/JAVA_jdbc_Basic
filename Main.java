@@ -1,4 +1,4 @@
-package p20200901DB»ğÀÔ;
+package p20200901DBì‚½ì…;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,60 +9,60 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-	// DB ¿¬°áÀ» À§ÇÑ base ÄÚµå
+	// DB ì—°ê²°ì„ ìœ„í•œ base ì½”ë“œ
 		
-		// 1. JDBC µå¶óÀÌ¹ö¸¦ ÀûÀç
+		// 1. JDBC ë“œë¼ì´ë²„ë¥¼ ì ì¬
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-				System.out.println("µå¶óÀÌ¹ö ÀûÀç ¼º°ø");
+				System.out.println("ë“œë¼ì´ë²„ ì ì¬ ì„±ê³µ");
 			} catch (ClassNotFoundException e) {
-				System.out.println("µå¶óÀÌ¹ö¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+				System.out.println("ë“œë¼ì´ë²„ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 			}
 			
-			System.out.println("Ã¹¹øÂ° Å×½ºÆ®");
+			System.out.println("ì²«ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
 			
 //----------------------------------------------------------------------------------	
 			
-		// 2. DB ¿¬°á
-			String url		= "jdnc:oracle:thin:@net.yju.ac.kr:1521:orcl";	// oracle DB Á¢¼ÓÀ» À§ÇÑ url
-			String id 		= "s1701052";									// oracle DB Á¢¼ÓÀ» À§ÇÑ ¾ÆÀÌµğ
-			String password = "p1701052";									// oracle DB Á¢¼ÓÀ» À§ÇÑ ÆĞ½º¿öµå
+		// 2. DB ì—°ê²°
+			String url	= "";		// oracle DB ì ‘ì†ì„ ìœ„í•œ url
+			String id 	= "";		// oracle DB ì ‘ì†ì„ ìœ„í•œ ì•„ì´ë””
+			String password = "";		// oracle DB ì ‘ì†ì„ ìœ„í•œ íŒ¨ìŠ¤ì›Œë“œ
 			Connection con 	= null;
 			
 			try {
 				con = DriverManager.getConnection(url , id, password);
-				System.out.println("¿¬°á ¼º°ø");
+				System.out.println("ì—°ê²° ì„±ê³µ");
 			} catch (SQLException e) {
-				System.out.println("¿¬°á ¿À·ù");
+				System.out.println("ì—°ê²° ì˜¤ë¥˜");
 			}
 			
-			System.out.println("µÎ¹øÂ° Å×½ºÆ®");
+			System.out.println("ë‘ë²ˆì§¸ í…ŒìŠ¤íŠ¸");
 
 //----------------------------------------------------------------------------------
 			
-		// 3. SQL¹®Àå ÀÛ¼º ¹× Àü¼Û
+		// 3. SQLë¬¸ì¥ ì‘ì„± ë° ì „ì†¡
 			try {
 				Statement stmt = con.createStatement();
 				String sql = null;
 				
-				// DEPARTMENT Å×ÀÌºíÀ» DEPTNO±âÁØÀ¸·Î ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ¿© Á¶È¸ÇÑ´Ù.
+				// DEPARTMENT í…Œì´ë¸”ì„ DEPTNOê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ ì¡°íšŒí•œë‹¤.
 				//sql = "select * from DEPARTMENT order by DEPTNO";
 				
 			/* <NOTE>
-			 * select¹®À» ÇÒ¶§´Â executeQuery ¸Ş¼Òµå »ç¿ëÇÑ´Ù.
+			 * selectë¬¸ì„ í• ë•ŒëŠ” executeQuery ë©”ì†Œë“œ ì‚¬ìš©í•œë‹¤.
 			 * ResultSet rs = stmt.executeQuery(sql);
-			 * insert¹®À» »ç¿ëÇÏ¸é executeUpdate ¸Ş¼Òµå »ç¿ëÇÑ´Ù.
+			 * insertë¬¸ì„ ì‚¬ìš©í•˜ë©´ executeUpdate ë©”ì†Œë“œ ì‚¬ìš©í•œë‹¤.
 			 */
 				
 			int a = stmt.executeUpdate(sql);
 				
-			System.out.println("Äõ¸®¸¦ ¿äÃ»ÇÏ¿´½À´Ï´Ù." + a);
+			System.out.println("ì¿¼ë¦¬ë¥¼ ìš”ì²­í•˜ì˜€ìŠµë‹ˆë‹¤." + a);
 				
 			stmt.close();	
 			con.close();	
 			
 			} catch (SQLException e) {
-				System.out.println("¿¹¿Ü°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.");
+				System.out.println("ì˜ˆì™¸ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
 				}
 
 			
